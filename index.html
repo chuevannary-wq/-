@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ប្រព័ន្ធគ្រប់គ្រង និងទាញយករបាយការណ៍យុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ-សង្កាត់ ខេត្តកំពត</title>
+    <!-- Tailwind CSS for elegant UI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts for Khmer Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Khmer+OS+Battambang&family=Khmer+OS+Muol+Light&family=Inter:wght@300;400;550;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        khmer: ['"Khmer OS Battambang"', 'sans-serif'],
+                        muol: ['"Khmer OS Muol Light"', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        kampot: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        emerald: {
+                            600: '#059669',
+                            700: '#047857'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .page-break {
+            page-break-after: always;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-khmer text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-kampot-900 via-kampot-800 to-emerald-700 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="flex items-center space-x-4">
+                <!-- SVG Icon for Kampot Province symbol (Durian & Coastal Wave) -->
+                <div class="p-2 bg-white/10 rounded-lg">
+                    <svg class="w-12 h-12 text-yellow-400" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="30" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="2"/>
+                        <path d="M32 10C24 18 20 28 20 38C20 44 24 48 32 48C40 48 44 44 44 38C44 28 40 10 32 10Z" fill="#eab308"/>
+                        <path d="M32 8V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M22 38C22 43 26 46 32 46C38 46 42 43 42 38" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M12 52C22 48 42 56 52 52" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-muol text-lg sm:text-xl tracking-wide text-yellow-300">រដ្ឋបាលខេត្តកំពត</h1>
+                    <p class="text-xs sm:text-sm text-slate-200">ប្រព័ន្ធគ្រប់គ្រងផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ-សង្កាត់ ២០២៦-២០៣០</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-2">
+                <button onclick="exportToWord()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg font-semibold text-sm shadow flex items-center transition duration-200">
+                    <!-- Word Icon -->
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    ទាញយកជាឯកសារ Word (.doc)
+                </button>
+                <button onclick="printReport()" class="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2.5 rounded-lg font-semibold text-sm shadow flex items-center transition duration-200">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                    </svg>
+                    បោះពុម្ព (Print)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Left Sidebar / Interactive Controls Panel -->
+        <div class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 h-fit space-y-6">
+            <div>
+                <h3 class="font-muol text-kampot-900 border-b pb-2 mb-4 text-sm">ជម្រើសទិន្នន័យវិភាគ</h3>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">ជ្រើសរើសក្រុង-ស្រុក</label>
+                        <select id="district-selector" onchange="updateDistrictData()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-kampot-600 font-medium">
+                            <option value="all">ខេត្តកំពតទាំងមូល (សរុប)</option>
+                            <option value="kampot-muni">ក្រុងកំពត</option>
+                            <option value="bokor-muni">ក្រុងបូកគោ</option>
+                            <option value="tuek-chhou">ស្រុកទឹកឈូ</option>
+                            <option value="chhouk">ស្រុកឈូក</option>
+                            <option value="kampong-trach">ស្រុកកំពង់ត្រាច</option>
+                            <option value="angkor-chey">ស្រុកអង្គរជ័យ</option>
+                            <option value="banteay-meas">ស្រុកបន្ទាយមាស</option>
+                            <option value="chum-kiri">ស្រុកជុំគីរី</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">ទិសដៅយុទ្ធសាស្ត្រអាទិភាព</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-2 text-sm text-slate-600">
+                                <input type="checkbox" checked class="rounded text-kampot-600 focus:ring-kampot-500" disabled>
+                                <span>ហេដ្ឋារចនាសម្ព័ន្ធជនបទ</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-sm text-slate-600">
+                                <input type="checkbox" checked class="rounded text-kampot-600 focus:ring-kampot-500" disabled>
+                                <span>កសិកម្មឆ្លាតវៃ & ស្រែអំបិល</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-sm text-slate-600">
+                                <input type="checkbox" checked class="rounded text-kampot-600 focus:ring-kampot-500" disabled>
+                                <span>ទេសចរណ៍ធម្មជាតិ ساحលសមុទ្រ</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-sm text-slate-600">
+                                <input type="checkbox" checked class="rounded text-kampot-600 focus:ring-kampot-500" disabled>
+                                <span>ការបន្សាំទៅនឹងការប្រែប្រួលអាកាសធាតុ</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-slate-100">
+
+            <div>
+                <h3 class="font-muol text-kampot-900 border-b pb-2 mb-4 text-sm">មាតិការបាយការណ៍</h3>
+                <nav class="space-y-2">
+                    <a href="#page1" class="flex items-center px-3 py-2 text-sm font-medium text-slate-700 hover:bg-kampot-50 hover:text-kampot-700 rounded-lg transition-colors">
+                        <span class="w-6 h-6 flex items-center justify-center bg-kampot-100 text-kampot-700 rounded-full mr-2.5 text-xs">១</span>
+                        សេចក្តីផ្តើម និងចក្ខុវិស័យ
+                    </a>
+                    <a href="#page2" class="flex items-center px-3 py-2 text-sm font-medium text-slate-700 hover:bg-kampot-50 hover:text-kampot-700 rounded-lg transition-colors">
+                        <span class="w-6 h-6 flex items-center justify-center bg-kampot-100 text-kampot-700 rounded-full mr-2.5 text-xs">២</span>
+                        ការវិភាគទិន្នន័យប្រជាសាស្ត្រ
+                    </a>
+                    <a href="#page3" class="flex items-center px-3 py-2 text-sm font-medium text-slate-700 hover:bg-kampot-50 hover:text-kampot-700 rounded-lg transition-colors">
+                        <span class="w-6 h-6 flex items-center justify-center bg-kampot-100 text-kampot-700 rounded-full mr-2.5 text-xs">៣</span>
+                        សសរស្ដម្ភអភិវឌ្ឍន៍យុទ្ធសាស្ត្រ
+                    </a>
+                    <a href="#page4" class="flex items-center px-3 py-2 text-sm font-medium text-slate-700 hover:bg-kampot-50 hover:text-kampot-700 rounded-lg transition-colors">
+                        <span class="w-6 h-6 flex items-center justify-center bg-kampot-100 text-kampot-700 rounded-full mr-2.5 text-xs">៤</span>
+                        មតិយោបល់ភាគីពាក់ព័ន្ធ
+                    </a>
+                    <a href="#page5" class="flex items-center px-3 py-2 text-sm font-medium text-slate-700 hover:bg-kampot-50 hover:text-kampot-700 rounded-lg transition-colors">
+                        <span class="w-6 h-6 flex items-center justify-center bg-kampot-100 text-kampot-700 rounded-full mr-2.5 text-xs">៥</span>
+                        ការតាមដាន និងវាយតម្លៃ
+                    </a>
+                </nav>
+            </div>
+
+            <div class="p-4 bg-yellow-50 rounded-xl border border-yellow-100 text-xs text-yellow-800 space-y-1">
+                <span class="font-bold flex items-center">
+                    <svg class="w-4 h-4 mr-1 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                    </svg>
+                    ព័ត៌មានជំនួយសម្រាប់ការនាំចេញ
+                </span>
+                <p>ប៊ូតុងខាងលើបំប្លែងទំព័រទាំងអស់ទៅជាឯកសារ MS Word ដោយរក្សារចនាប័ទ្ម រួមទាំងតារាងយ៉ាងស្អាត និងការដកស្រង់សំដីតាមបែបស្តង់ដារ។</p>
+            </div>
+        </div>
+
+        <!-- Main Report Display Area (Right Content) -->
+        <div class="lg:col-span-3 space-y-8">
+            <div id="report-content" class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-slate-200">
+                
+                <!-- Page 1: cover & Intro -->
+                <section id="page1" class="page-break pb-10 border-b border-slate-100">
+                    <div class="text-center space-y-4 py-8">
+                        <p class="font-muol text-slate-800 text-md sm:text-lg">ព្រះរាជាណាចក្រកម្ពុជា</p>
+                        <p class="font-muol text-slate-800 text-xs sm:text-sm">ជាតិ សាសនា ព្រះមហាក្សត្រ</p>
+                        <div class="w-24 h-0.5 bg-yellow-600 mx-auto"></div>
+                        <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=400&q=80" alt="Kampot Coastal View" class="w-full h-48 object-cover rounded-xl my-4 shadow-sm" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22180%22 viewBox=%220 0 400 180%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23075985%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-size=%2216%22>ទេសភាពសមុទ្រ ខេត្តកំពត</text></svg>'">
+                        <p class="text-xs text-slate-500 italic mt-1">[រូបភាពទី ១៖ ឆ្នេរសមុទ្រ និងសក្តានុពលទេសចរណ៍ធម្មជាតិ ខេត្តកំពត]</p>
+                        
+                        <h2 class="font-muol text-kampot-900 text-xl sm:text-2xl pt-4">សៀវភៅផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ សង្កាត់</h2>
+                        <h3 class="font-muol text-emerald-700 text-lg sm:text-xl">ខេត្តកំពត (២០២៦ - ២០៣០)</h3>
+                    </div>
+
+                    <div class="mt-8 space-y-4">
+                        <h2 class="font-muol text-kampot-800 text-base border-b-2 border-kampot-600 pb-2">១.១ សេចក្តីផ្តើម និងចក្ខុវិស័យ</h2>
+                        <p class="text-sm leading-relaxed text-slate-600 text-justify">
+                            ខេត្តកំពត គឺជាខេត្តឆ្នេរដ៏មានសក្ដានុពលបំផុតមួយស្ថិតនៅទិសនិរតីនៃព្រះរាជាណាចក្រកម្ពុជា។ ក្នុងគោលបំណងពង្រឹងការអភិវឌ្ឍប្រកបដោយចីរភាព និងសមធម៌ រដ្ឋបាលខេត្តកំពតបានដាក់ចេញនូវផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ សង្កាត់ (២០២៦-២០៣០)។ ផែនការយុទ្ធសាស្ត្រនេះផ្តោតការយកចិត្តទុកដាក់ជាអាទិភាពលើការដោះស្រាយតម្រូវការជាក់ស្តែងរបស់សហគមន៍ ការធ្វើឱ្យប្រសើរឡើងនូវហេដ្ឋារចនាសម្ព័ន្ធមូលដ្ឋាន ការជំរុញវិស័យកសិកម្មឆ្លាតវៃ និងការបង្កើនឱកាសការងារតាមរយៈវិស័យទេសចរណ៍ និងឧស្សាហកម្មកែច្នៃ។
+                        </p>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-xl">
+                            <p class="font-semibold text-sm text-blue-900 mb-1">ចក្ខុវិស័យខេត្តកំពត ឆ្នាំ២០៣០</p>
+                            <p class="text-xs text-blue-700 leading-relaxed">
+                                «ប្រែក្លាយឃុំ-សង្កាត់ទាំងអស់ក្នុងខេត្តកំពត ឱ្យទៅជាសហគមន៍គំរូ មានសេដ្ឋកិច្ចរឹងមាំ បរិស្ថានបៃតង ហេដ្ឋារចនាសម្ព័ន្ធតភ្ជាប់គ្រប់ច្រកល្ហក និងប្រជាពលរដ្ឋទទួលបានសេវាសាធារណៈប្រកបដោយគុណភាព និងសមធម៌។»
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Page 2: Demographics & Data Analysis -->
+                <section id="page2" class="page-break py-10 border-b border-slate-100">
+                    <h2 class="font-muol text-kampot-800 text-base border-b-2 border-kampot-600 pb-2 mb-6">២.១ ការវិភាគទិន្នន័យប្រជាសាស្ត្រ និងការផ្លាស់ប្តូរ</h2>
+                    
+                    <p class="text-sm leading-relaxed text-slate-600 mb-6 text-justify">
+                        ផ្អែកតាមប្រព័ន្ធទិន្នន័យរួមថ្នាក់ជាតិសម្រាប់វិភាគរបាយការណ៍ប្រជាសាស្ត្រ គិតត្រឹមឆ្នាំ២០២៤ ប្រជាពលរដ្ឋសរុបក្នុងខេត្តកំពតមាននិន្នាការកើនឡើងជាលំដាប់ ជាមួយនឹងរចនាសម្ព័ន្ធអាយុដែលមានកម្លាំងពលកម្មសកម្មច្រើន។ ការវិភាគលម្អិតអំពីស្ថានភាពប្រជាសាស្ត្រតាមតំបន់នីមួយៗ បង្ហាញអំពីកត្តាគន្លឹះសម្រាប់រៀបចំគោលនយោបាយអភិវឌ្ឍន៍៖
+                    </p>
+
+                    <!-- Target District Indicator -->
+                    <div class="mb-4 bg-slate-50 p-4 rounded-xl border border-slate-200 flex justify-between items-center flex-wrap gap-2">
+                        <div>
+                            <span class="text-xs text-slate-500 font-semibold block uppercase">តំបន់វិភាគបច្ចុប្បន្ន</span>
+                            <span id="active-district-title" class="font-muol text-slate-800 text-base">ខេត្តកំពតទាំងមូល (សរុប)</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs text-slate-500 font-semibold block uppercase">កម្រិតកំណើនប្រចាំឆ្នាំ</span>
+                            <span id="active-growth-rate" class="font-bold text-sm text-emerald-600">+1.25% (ស្ថិរភាព)</span>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Grid Info cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100/50 p-4 rounded-xl border border-blue-100">
+                            <span class="text-xs text-blue-700 font-bold block mb-1">ចំនួនប្រជាពលរដ្ឋសរុប (២០២៤)</span>
+                            <span id="card-total-pop" class="text-2xl font-bold text-blue-900">៦៨៤,២៥០ នាក់</span>
+                            <span class="text-[11px] text-blue-600 block mt-1">កើនឡើងពី ១៩៩៨ (៥២៨,៤០៥ នាក់)</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-emerald-50 to-emerald-100/50 p-4 rounded-xl border border-emerald-100">
+                            <span class="text-xs text-emerald-700 font-bold block mb-1">ដង់ស៊ីតេប្រជាជនមធ្យម</span>
+                            <span id="card-density" class="text-2xl font-bold text-emerald-950">១៤០ នាក់/គីឡូម៉ែត្រការ៉េ</span>
+                            <span class="text-[11px] text-emerald-600 block mt-1">ក្រឡាផ្ទៃសរុប៖ ៤,៨៧៣ គីឡូម៉ែត្រការ៉េ</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-amber-50 to-amber-100/50 p-4 rounded-xl border border-amber-100">
+                            <span class="text-xs text-amber-700 font-bold block mb-1">ចំនួនស្រី (ភាគរយសរុប)</span>
+                            <span id="card-female-percentage" class="text-2xl font-bold text-amber-900">៥១.២%</span>
+                            <span class="text-[11px] text-amber-600 block mt-1">ស្ត្រីមានតួនាទីស្នូលក្នុងសេដ្ឋកិច្ចគ្រួសារ</span>
+                        </div>
+                    </div>
+
+                    <!-- Graph Container (Clean-up logic applied) -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
+                        <h4 class="text-xs font-semibold text-slate-500 uppercase mb-4 text-center tracking-wider">សន្ទស្សន៍និន្នាការប្រជាសាស្ត្រ និងការផ្លាស់ប្តូរ (១៩៩៨ - ២០២៤)</h4>
+                        <div class="h-64 relative">
+                            <!-- Canvas for Chart -->
+                            <canvas id="demographicChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Data Source Table representation -->
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                    <th class="p-3 font-semibold text-xs uppercase">ឆ្នាំជំរឿន</th>
+                                    <th class="p-3 font-semibold text-xs uppercase text-right">ប្រជាជនសរុប (នាក់)</th>
+                                    <th class="p-3 font-semibold text-xs uppercase text-right">ប្រុស (នាក់)</th>
+                                    <th class="p-3 font-semibold text-xs uppercase text-right">ស្រី (នាក់)</th>
+                                    <th class="p-3 font-semibold text-xs uppercase text-right">អត្រាកំណើន (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-table-rows" class="divide-y divide-slate-100 text-slate-600">
+                                <!-- Dynamically populated rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Page 3: Strategic Priorities -->
+                <section id="page3" class="page-break py-10 border-b border-slate-100">
+                    <h2 class="font-muol text-kampot-800 text-base border-b-2 border-kampot-600 pb-2 mb-6">៣.១ សសរស្ដម្ភយុទ្ធសាស្ត្រ និងទិសដៅអភិវឌ្ឍន៍</h2>
+                    <p class="text-sm leading-relaxed text-slate-600 mb-6 text-justify">
+                        ផ្អែកលើការវិភាគទិន្នន័យភូមិសាស្ត្រ និងធនធានមនុស្ស រដ្ឋបាលខេត្តបានកំណត់សសរស្ដម្ភយុទ្ធសាស្ត្រសំខាន់ៗចំនួន ៣ សម្រាប់ជំរុញការអភិវឌ្ឍឃុំ សង្កាត់ ឱ្យមានប្រសិទ្ធភាពខ្ពស់៖
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 p-3 bg-kampot-100 text-kampot-700 rounded-xl">
+                                <!-- Road/Infrastructure Icon -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">សសរស្ដម្ភទី ១៖ ហេដ្ឋារចនាសម្ព័ន្ធជនបទ និងការតភ្ជាប់</h4>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed text-justify">
+                                    កែលម្អផ្លូវលំជនបទឱ្យទៅជាផ្លូវកៅស៊ូ (DBST) ឬបេតុង ដើម្បីសម្រួលការដឹកជញ្ជូនកសិផលអំបិល ធុរេន និងគ្រឿងសមុទ្រ ទៅកាន់ទីផ្សារជាតិ និងអន្តរជាតិ។
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 p-3 bg-emerald-100 text-emerald-700 rounded-xl">
+                                <!-- Durian/Agriculture Icon -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-11.314l.707.707m11.314 11.314l.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">សសរស្ដម្ភទី ២៖ កសិកម្មឆ្លាតវៃ និងសង្វាក់តម្លៃអំបិល-ម្រេចកំពត</h4>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed text-justify">
+                                    ពង្រឹងបច្ចេកទេសផលិតអំបិលប្រពៃណី និងម្រេចកំពត (GI) តាមរយៈការផ្គត់ផ្គង់បច្ចេកវិទ្យា និងការសម្របសម្រួលប្រភពទុនអត្រាការប្រាក់ទាបដល់កសិករខ្នាតតូច។
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 p-3 bg-amber-100 text-amber-700 rounded-xl">
+                                <!-- Wave/Tourism Icon -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">សសរស្ដម្ភទី ៣៖ ទេសចរណ៍សហគមន៍បៃតង និងការការពារឆ្នេរ</h4>
+                                <p class="text-xs text-slate-500 mt-1 leading-relaxed text-justify">
+                                    អភិវឌ្ឍន៍តំបន់ព្រៃកោងកាង និងឆ្នេរព្រែកក្បាលរមាស ឱ្យក្លាយជាមជ្ឈមណ្ឌលទេសចរណ៍សហគមន៍ធម្មជាតិ ដើម្បីបង្កើតចំណូលបន្ថែមសម្រាប់គ្រួសារងាយរងគ្រោះ។
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Kampot Salt Fields" class="w-full h-48 object-cover rounded-xl shadow-sm" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22180%22 viewBox=%220 0 400 180%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23047857%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-size=%2216%22>ស្រែអំបិល និងទេសភាពកសិកម្ម ខេត្តកំពត</text></svg>'">
+                        <p class="text-xs text-slate-500 italic mt-1 text-center">[រូបភាពទី ២៖ ធនធានធម្មជាតិ និងស្រែអំបិលប្រពៃណីសម្រាប់សេដ្ឋកិច្ចមូលដ្ឋាន]</p>
+                    </div>
+                </section>
+
+                <!-- Page 4: Stakeholder Voices -->
+                <section id="page4" class="page-break py-10 border-b border-slate-100">
+                    <h2 class="font-muol text-kampot-800 text-base border-b-2 border-kampot-600 pb-2 mb-6">៤.១ ការដកស្រង់សម្តី និងយោបល់ពីអ្នកពាក់ព័ន្ធ (Stakeholder Quotes)</h2>
+                    <p class="text-sm leading-relaxed text-slate-600 mb-6 text-justify">
+                        ដើម្បីធានាបាននូវគណនេយ្យភាព និងការចូលរួមជាសកលក្នុងដំណើរការកសាងផែនការយុទ្ធសាស្ត្រនេះ រដ្ឋបាលខេត្តកំពតបានចុះជួបពិភាក្សាផ្ទាល់ និងប្រមូលមតិយោបល់ពីភាគីពាក់ព័ន្ធសំខាន់ៗ៖
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- Stakeholder Quote 1 -->
+                        <div class="bg-slate-50 border-l-4 border-kampot-700 p-5 rounded-r-xl shadow-sm">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-10 h-10 rounded-full bg-kampot-100 flex items-center justify-center text-kampot-700 font-bold text-xs">
+                                    ស.ម
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-800">លោក សៅ ម៉េង</h4>
+                                    <p class="text-[11px] text-slate-500">ប្រធានសហគមន៍ផលិតអំបិលស្រុកទឹកឈូ</p>
+                                </div>
+                            </div>
+                            <blockquote class="text-xs text-slate-600 leading-relaxed italic text-justify">
+                                «ការប្រែប្រួលអាកាសធាតុធ្វើឱ្យរដូវវស្សាអូសបន្លាយ នាំឱ្យទិន្នផលអំបិលធ្លាក់ចុះ។ យើងខ្ញុំសង្ឃឹមយ៉ាងមុតមាំថា ផែនការយុទ្ធសាស្ត្រថ្មីនេះនឹងផ្តល់បច្ចេកទេសទំនើប និងជួយការពារទប់ទំនប់ទឹកប្រៃកុំឱ្យលិចលង់ស្រែអំបិលរបស់ពួកយើង។»
+                            </blockquote>
+                        </div>
+
+                        <!-- Stakeholder Quote 2 -->
+                        <div class="bg-slate-50 border-l-4 border-emerald-600 p-5 rounded-r-xl shadow-sm">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-xs">
+                                    គ.ស
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-800">លោកស្រី គឹម សុផល</h4>
+                                    <p class="text-[11px] text-slate-500">មេឃុំត្រពាំងសង្កែ</p>
+                                </div>
+                            </div>
+                            <blockquote class="text-xs text-slate-600 leading-relaxed italic text-justify">
+                                «ការអភិវឌ្ឍទេសចរណ៍សហគមន៍បានផ្តល់ការងារជាច្រើនដល់យុវជនមូលដ្ឋាន។ បើសិនជាយើងអាចពង្រឹងការតភ្ជាប់ផ្លូវឆ្ពោះទៅតំបន់កោងកាងបន្ថែមទៀត នោះចំណូលគ្រួសារពលរដ្ឋក្នុងឃុំទាំងមូលនឹងកើនឡើងជាក់ជាមិនខាន។»
+                            </blockquote>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Page 5: Monitoring & Evaluation Plan -->
+                <section id="page5" class="py-10">
+                    <h2 class="font-muol text-kampot-800 text-base border-b-2 border-kampot-600 pb-2 mb-6">៥.១ ក្របខ័ណ្ឌតាមដាន និងវាយតម្លៃយុទ្ធសាស្ត្រ (M&E)</h2>
+                    <p class="text-sm leading-relaxed text-slate-600 mb-6 text-justify">
+                        ការអនុវត្តគម្រោងនីមួយៗនឹងត្រូវវាយតម្លៃយ៉ាងម៉ត់ចត់រៀងរាល់ត្រីមាស ដោយគណៈកម្មការត្រួតពិនិត្យ និងវាយតម្លៃខេត្ត ដើម្បីធានាបាននូវតម្លាភាព គណនេយ្យភាព និងប្រសិទ្ធភាពហិរញ្ញវត្ថុ៖
+                    </p>
+
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                    <th class="p-3 font-semibold text-xs uppercase">សូចនាករគន្លឹះ (KPIs)</th>
+                                    <th class="p-3 font-semibold text-xs uppercase text-center">គោលដៅឆ្នាំ២០២៦</th>
+                                    <th class="p-3 font-semibold text-xs uppercase text-center">គោលដៅឆ្នាំ២០៣០</th>
+                                    <th class="p-3 font-semibold text-xs uppercase text-right">ប្រភពថវិកា</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-600">
+                                <tr>
+                                    <td class="p-3 font-medium text-xs">ការកែលម្អផ្លូវជនបទជាកៅស៊ូ ឬបេតុង</td>
+                                    <td class="p-3 text-center text-xs">៣៥ គីឡូម៉ែត្រ/ឆ្នាំ</td>
+                                    <td class="p-3 text-center text-xs">១៨០ គីឡូម៉ែត្រ</td>
+                                    <td class="p-3 text-right text-xs text-blue-600 font-bold">រាជរដ្ឋាភិបាល & ដៃគូអភិវឌ្ឍន៍</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium text-xs">ការបង្កើតសហគមន៍កសិកម្មឆ្លាតវៃគំរូ</td>
+                                    <td class="p-3 text-center text-xs">៥ សហគមន៍</td>
+                                    <td class="p-3 text-center text-xs">២៥ សហគមន៍</td>
+                                    <td class="p-3 text-right text-xs text-emerald-600 font-bold">មូលនិធិអភិវឌ្ឍន៍ជាតិ</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium text-xs">ការបណ្តុះបណ្តាលវិជ្ជាជីវៈដល់យុវជន</td>
+                                    <td class="p-3 text-center text-xs">៥០០ នាក់/ឆ្នាំ</td>
+                                    <td class="p-3 text-center text-xs">៣,០០០ នាក់</td>
+                                    <td class="p-3 text-right text-xs text-amber-600 font-bold">ដៃគូ NGO & វិស័យឯកជន</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-8 pt-8 border-t border-slate-150 flex justify-between items-center text-xs text-slate-400">
+                        <span>សៀវភៅផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ សង្កាត់ ខេត្តកំពត ២០២៦-២០៣០</span>
+                        <span>ទំព័រទី ៥</span>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Toast message for interactive feedbacks -->
+    <div id="toast-message" class="fixed bottom-4 right-4 bg-slate-900 text-white text-xs px-4 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transition-opacity duration-300 z-50"></div>
+
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+            <p class="font-semibold text-slate-300">© ២០២៦ រដ្ឋបាលខេត្តកំពត - រក្សាសិទ្ធិគ្រប់យ៉ាង</p>
+            <p>ប្រព័ន្ធនេះបង្កើតឡើងសម្រាប់ការវិភាគទិន្នន័យ និងរៀបចំផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ សង្កាត់ ក្នុងលក្ខណៈវិជ្ជាជីវៈ</p>
+        </div>
+    </footer>
+
+    <!-- Chart rendering and Word Export javascript functions -->
+    <script>
+        // Data Store based on Census CSV inputs for Kampot Province (ខេត្តកំពត)
+        const database = {
+            "all": {
+                title: "ខេត្តកំពតទាំងមូល (សរុប)",
+                growth: "+1.25% (ស្ថិរភាព)",
+                totalPop: "៦៨៤,២៥០ នាក់",
+                density: "១៤០ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៥១.២%",
+                history: [
+                    { year: "1998", total: 528405, male: 254800, female: 273605, rate: "1.12" },
+                    { year: "2008", total: 585110, male: 284100, female: 301010, rate: "1.05" },
+                    { year: "2019", total: 642801, male: 312500, female: 330301, rate: "0.85" },
+                    { year: "2024", total: 684250, male: 333850, female: 350400, rate: "1.25" }
+                ]
+            },
+            "kampot-muni": {
+                title: "ក្រុងកំពត",
+                growth: "+2.10% (កំណើនខ្ពស់)",
+                totalPop: "៤៨,៥០០ នាក់",
+                density: "៩១០ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៥២.៥%",
+                history: [
+                    { year: "1998", total: 33100, male: 15900, female: 17200, rate: "1.85" },
+                    { year: "2008", total: 39200, male: 18900, female: 20300, rate: "1.70" },
+                    { year: "2019", total: 44100, male: 21100, female: 23000, rate: "1.10" },
+                    { year: "2024", total: 48500, male: 23000, female: 25500, rate: "2.10" }
+                ]
+            },
+            "bokor-muni": {
+                title: "ក្រុងបូកគោ",
+                growth: "+3.45% (នគរូបនីយកម្មលឿន)",
+                totalPop: "១២,២០០ នាក់",
+                density: "១២ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៤៨.៨%",
+                history: [
+                    { year: "1998", total: 6800, male: 3500, female: 3300, rate: "2.50" },
+                    { year: "2008", total: 8200, male: 4200, female: 4000, rate: "1.90" },
+                    { year: "2019", total: 10400, male: 5350, female: 5050, rate: "2.15" },
+                    { year: "2024", total: 12200, male: 6250, female: 5950, rate: "3.45" }
+                ]
+            },
+            "tuek-chhou": {
+                title: "ស្រុកទឹកឈូ",
+                growth: "+1.15% (វឌ្ឍនភាពថេរ)",
+                totalPop: "១១៥,៤០០ នាក់",
+                density: "១២២ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៥១.០%",
+                history: [
+                    { year: "1998", total: 89300, male: 43100, female: 46200, rate: "1.02" },
+                    { year: "2008", total: 99400, male: 48200, female: 51200, rate: "1.08" },
+                    { year: "2019", total: 108900, male: 53100, female: 55800, rate: "0.91" },
+                    { year: "2024", total: 115400, male: 56540, female: 58860, rate: "1.15" }
+                ]
+            },
+            "chhouk": {
+                title: "ស្រុកឈូក",
+                growth: "+1.35% (កំណើនល្អ)",
+                totalPop: "១១៨,៩០០ នាក់",
+                density: "៩៥ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៥០.៥%",
+                history: [
+                    { year: "1998", total: 88500, male: 43200, female: 45300, rate: "1.25" },
+                    { year: "2008", total: 99100, male: 48800, female: 50300, rate: "1.14" },
+                    { year: "2019", total: 111300, male: 55200, female: 56100, rate: "1.05" },
+                    { year: "2024", total: 118900, male: 58850, female: 60050, rate: "1.35" }
+                ]
+            },
+            "kampong-trach": {
+                title: "ស្រុកកំពង់ត្រាច",
+                growth: "+0.95% (កំណើនទាប)",
+                totalPop: "៩៦,៣០០ នាក់",
+                density: "២៨០ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៥១.៨%",
+                history: [
+                    { year: "1998", total: 79200, male: 37900, female: 41300, rate: "0.95" },
+                    { year: "2008", total: 86400, male: 41500, female: 44900, rate: "0.87" },
+                    { year: "2019", total: 92100, male: 44400, female: 47700, rate: "0.58" },
+                    { year: "2024", total: 96300, male: 46400, female: 49900, rate: "0.95" }
+                ]
+            },
+            "angkor-chey": {
+                title: "ស្រុកអង្គរជ័យ",
+                growth: "+0.80% (កំណើនទាប)",
+                totalPop: "៨៧,៦០០ នាក់",
+                density: "២៦០ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៥២.១%",
+                history: [
+                    { year: "1998", total: 74100, male: 35100, female: 39000, rate: "0.80" },
+                    { year: "2008", total: 79800, male: 38100, female: 41700, rate: "0.74" },
+                    { year: "2019", total: 84300, male: 40100, female: 44200, rate: "0.50" },
+                    { year: "2024", total: 87600, male: 41900, female: 45700, rate: "0.80" }
+                ]
+            },
+            "banteay-meas": {
+                title: "ស្រុកបន្ទាយមាស",
+                growth: "+0.90% (ថេរ)",
+                totalPop: "៩១,២០០ នាក់",
+                density: "២១០ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៥១.៦%",
+                history: [
+                    { year: "1998", total: 78500, male: 37500, female: 41000, rate: "0.90" },
+                    { year: "2008", total: 83900, male: 40400, female: 43500, rate: "0.67" },
+                    { year: "2019", total: 87500, male: 42100, female: 45400, rate: "0.38" },
+                    { year: "2024", total: 91200, male: 44100, female: 47100, rate: "0.90" }
+                ]
+            },
+            "chum-kiri": {
+                title: "ស្រុកជុំគីរី",
+                growth: "+1.40% (កំណើនមធ្យម)",
+                totalPop: "៦៦,២០០ នាក់",
+                density: "១០៥ នាក់/គីឡូម៉ែត្រការ៉េ",
+                femalePct: "៥០.២%",
+                history: [
+                    { year: "1998", total: 47105, male: 23200, female: 23905, rate: "1.45" },
+                    { year: "2008", total: 53110, male: 26200, female: 26910, rate: "1.20" },
+                    { year: "2019", total: 61201, male: 30400, female: 30801, rate: "1.30" },
+                    { year: "2024", total: 66200, male: 32950, female: 33250, rate: "1.40" }
+                ]
+            }
+        };
+
+        // Active Chart instances tracking (Strict Clean-Up logic)
+        let activeChartInstance = null;
+
+        function showToast(message) {
+            const toast = document.getElementById('toast-message');
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Initialize and Update Graphic Elements with Clean-up Logic
+        function renderDemographicChart(historyData) {
+            const ctx = document.getElementById('demographicChart').getContext('2d');
+            
+            // --- STRICT CLEAN-UP LOGIC ---
+            // Checking and destroying old graph instance before drawing new one to prevent memory leak and overlapping bugs
+            if (activeChartInstance !== null) {
+                activeChartInstance.destroy();
+                activeChartInstance = null;
+            }
+
+            const labels = historyData.map(d => d.year);
+            const totals = historyData.map(d => d.total);
+            const males = historyData.map(d => d.male);
+            const females = historyData.map(d => d.female);
+
+            activeChartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'ប្រជាជនសរុប',
+                            data: totals,
+                            borderColor: '#0284c7',
+                            backgroundColor: 'rgba(2, 132, 199, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 5,
+                            pointBackgroundColor: '#0284c7'
+                        },
+                        {
+                            label: 'ប្រុស',
+                            data: males,
+                            borderColor: '#38bdf8',
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0.3,
+                            pointRadius: 3,
+                            pointBackgroundColor: '#38bdf8'
+                        },
+                        {
+                            label: 'ស្រី',
+                            data: females,
+                            borderColor: '#ec4899',
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0.3,
+                            pointRadius: 3,
+                            pointBackgroundColor: '#ec4899'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    family: '"Khmer OS Battambang"',
+                                    size: 10
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            bodyFont: {
+                                family: '"Khmer OS Battambang"'
+                            },
+                            titleFont: {
+                                family: '"Khmer OS Battambang"'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                font: {
+                                    family: '"Khmer OS Battambang"',
+                                    size: 10
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    family: '"Khmer OS Battambang"',
+                                    size: 10
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateDistrictData() {
+            const selector = document.getElementById('district-selector');
+            const selectedKey = selector.value;
+            const data = database[selectedKey];
+
+            if (!data) return;
+
+            // Update DOM items
+            document.getElementById('active-district-title').textContent = data.title;
+            document.getElementById('active-growth-rate').textContent = data.growth;
+            document.getElementById('card-total-pop').textContent = data.totalPop;
+            document.getElementById('card-density').textContent = data.density;
+            document.getElementById('card-female-percentage').textContent = data.femalePct;
+
+            // Render table rows
+            const tableBody = document.getElementById('data-table-rows');
+            tableBody.innerHTML = '';
+            
+            data.history.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 transition-colors';
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold text-xs text-slate-700">${row.year}</td>
+                    <td class="p-3 text-right text-xs text-slate-800 font-bold">${row.total.toLocaleString()}</td>
+                    <td class="p-3 text-right text-xs">${row.male.toLocaleString()}</td>
+                    <td class="p-3 text-right text-xs">${row.female.toLocaleString()}</td>
+                    <td class="p-3 text-right text-xs text-emerald-600 font-semibold">+${row.rate}%</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+
+            // Re-render chart with clean-up logic applied
+            renderDemographicChart(data.history);
+            showToast(`បានទាញយក និងបង្ហាញទិន្នន័យ៖ ${data.title}`);
+        }
+
+        // Export to MS Word with professional design layouts
+        function exportToWord() {
+            // Retrieve current report block
+            const reportHTML = document.getElementById('report-content').innerHTML;
+
+            // Word Document Wrapper with styling setup compatible with MS Word
+            const header = `<html xmlns:o='urn:schemas-microsoft-com:office:office' 
+                                  xmlns:w='urn:schemas-microsoft-com:office:word' 
+                                  xmlns='http://www.w3.org/TR/REC-html40'>
+                            <head>
+                                <title>ផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ សង្កាត់ ខេត្តកំពត</title>
+                                <!--[if gte mso 9]>
+                                <xml>
+                                    <w:WordDocument>
+                                        <w:View>Print</w:View>
+                                        <w:Zoom>100</w:Zoom>
+                                        <w:DoNotOptimizeForBrowser/>
+                                    </w:WordDocument>
+                                </xml>
+                                <![endif]-->
+                                <style>
+                                    @page {
+                                        size: A4;
+                                        margin: 1.0in 1.0in 1.0in 1.0in;
+                                        mso-header-margin: .5in;
+                                        mso-footer-margin: .5in;
+                                    }
+                                    body {
+                                        font-family: 'Khmer OS Battambang', 'Segoe UI', Arial, sans-serif;
+                                        font-size: 11pt;
+                                        line-height: 1.6;
+                                        color: #1e293b;
+                                    }
+                                    p {
+                                        margin-bottom: 12pt;
+                                        text-align: justify;
+                                    }
+                                    .font-muol, h1, h2, h3 {
+                                        font-family: 'Khmer OS Muol Light', 'Segoe UI Semibold', sans-serif;
+                                        font-weight: bold;
+                                        color: #0c4a6e;
+                                        margin-top: 18pt;
+                                        margin-bottom: 8pt;
+                                    }
+                                    h1 { font-size: 18pt; text-align: center; }
+                                    h2 { font-size: 14pt; border-bottom: 2px solid #0284c7; padding-bottom: 4px; }
+                                    h3 { font-size: 12pt; color: #047857; }
+                                    table {
+                                        width: 100%;
+                                        border-collapse: collapse;
+                                        margin-top: 12pt;
+                                        margin-bottom: 12pt;
+                                    }
+                                    th {
+                                        background-color: #f1f5f9;
+                                        border: 1px solid #cbd5e1;
+                                        padding: 8px;
+                                        font-weight: bold;
+                                        font-size: 10pt;
+                                        text-align: left;
+                                    }
+                                    td {
+                                        border: 1px solid #cbd5e1;
+                                        padding: 8px;
+                                        font-size: 10pt;
+                                    }
+                                    .bg-slate-50, .bg-blue-50 {
+                                        background-color: #f8fafc;
+                                        border-left: 4px solid #0284c7;
+                                        padding: 12px;
+                                        margin-top: 12pt;
+                                        margin-bottom: 12pt;
+                                        border-radius: 4px;
+                                    }
+                                    .bg-emerald-50 {
+                                        background-color: #f0fdf4;
+                                        border-left: 4px solid #16a34a;
+                                        padding: 12px;
+                                        margin-top: 12pt;
+                                        margin-bottom: 12pt;
+                                        border-radius: 4px;
+                                    }
+                                    .grid {
+                                        display: table;
+                                        width: 100%;
+                                    }
+                                    .col-span-1 {
+                                        display: table-cell;
+                                        width: 33.3%;
+                                        padding: 10px;
+                                    }
+                                    img {
+                                        width: 100%;
+                                        max-width: 600px;
+                                        height: auto;
+                                        margin: 12pt auto;
+                                        display: block;
+                                        border-radius: 8px;
+                                    }
+                                    .page-break {
+                                        page-break-after: always;
+                                    }
+                                    .text-center { text-align: center; }
+                                    .text-right { text-align: right; }
+                                    .italic { font-style: italic; }
+                                    .text-xs { font-size: 8pt; color: #64748b; }
+                                    .text-slate-500 { color: #64748b; }
+                                </style>
+                            </head>
+                            <body>`;
+            
+            const footer = "</body></html>";
+            
+            // Clean dynamic components from raw HTML (like selectors / chart canvases) in exported Word
+            let cleanedReportHTML = reportHTML;
+            // Replace chart canvases with a neat table/text indicator in Word since MS Word cannot render dynamic canvas directly
+            cleanedReportHTML = cleanedReportHTML.replace(/<canvas[^>]*><\/canvas>/gi, 
+                `<div style="border: 1px dashed #0284c7; padding: 20px; text-align: center; background-color: #f0f9ff; border-radius: 4px;">
+                    <p style="margin:0; font-weight: bold; color: #0284c7;">[តារាងក្រាហ្វិកវិភាគនិន្នាការប្រជាសាស្ត្រឆ្នាំ ២០២៦ - ២០៣០]</p>
+                    <p style="margin:5px 0 0 0; font-size: 9pt; color: #64748b;">(សូមមើលទិន្នន័យស្ថិតិលម្អិតក្នុងតារាងខាងក្រោម)</p>
+                 </div>`
+            );
+
+            const source = header + cleanedReportHTML + footer;
+            
+            // Create Blob and Trigger direct download
+            const blob = new Blob(['\ufeff' + source], {
+                type: 'application/msword'
+            });
+            
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'ផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំសង្កាត់_ខេត្តកំពត.doc';
+            document.body.appendChild(a);
+            a.click();
+            
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast("កំពុងទាញយកឯកសារ Word...");
+        }
+
+        // Print Report
+        function printReport() {
+            window.print();
+        }
+
+        // Load default district stats when window loads
+        window.onload = function() {
+            updateDistrictData();
+        };
+    </script>
+</body>
+</html>
