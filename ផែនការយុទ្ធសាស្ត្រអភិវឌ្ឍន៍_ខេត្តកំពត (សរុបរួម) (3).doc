@@ -1,0 +1,327 @@
+﻿<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+            <head>
+                <meta charset='utf-8'>
+                <title>ផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍</title>
+                <style>
+                    body { 
+                        font-family: 'Khmer OS Battambang', 'Arial', sans-serif; 
+                        line-height: 1.6; 
+                        color: #1e293b;
+                    }
+                    .moul-font { 
+                        font-family: 'Khmer OS Muol Light', 'Arial', sans-serif; 
+                        font-weight: bold; 
+                        color: #1e3a8a; 
+                    }
+                    h2 { 
+                        font-family: 'Khmer OS Muol Light', 'Arial', sans-serif; 
+                        font-size: 14pt; 
+                        color: #1e3a8a; 
+                        border-bottom: 2px solid #1e3a8a; 
+                        padding-bottom: 5px; 
+                        margin-top: 30px; 
+                        margin-bottom: 15px;
+                    }
+                    h3 { 
+                        font-family: 'Khmer OS Battambang', 'Arial', sans-serif; 
+                        font-size: 11pt; 
+                        font-weight: bold; 
+                        color: #0f172a;
+                        margin-top: 20px; 
+                        margin-bottom: 10px;
+                    }
+                    p {
+                        text-align: justify;
+                        font-size: 10.5pt;
+                        margin-bottom: 12px;
+                    }
+                    table { 
+                        width: 100%; 
+                        border-collapse: collapse; 
+                        margin: 15px 0; 
+                    }
+                    th, td { 
+                        border: 1px solid #94a3b8; 
+                        padding: 8px 12px; 
+                        font-size: 10pt; 
+                        text-align: left; 
+                    }
+                    th { 
+                        background-color: #1e3a8a; 
+                        color: #ffffff; 
+                        font-weight: bold;
+                    }
+                    tr {
+                        page-break-inside: avoid;
+                    }
+                    .text-right { text-align: right; }
+                    .text-center { text-align: center; }
+                    .bg-slate-50 { background-color: #f8fafc; }
+                    .bg-blue-50 { 
+                        background-color: #eff6ff; 
+                        border-left: 4px solid #1e3a8a; 
+                        padding: 12px;
+                        margin: 15px 0;
+                        border-radius: 4px;
+                    }
+                    .bg-amber-50 { 
+                        background-color: #fffbeb; 
+                        border-left: 4px solid #d97706; 
+                        padding: 12px;
+                        margin: 15px 0;
+                        border-radius: 4px;
+                    }
+                    .italic { font-style: italic; }
+                    .font-bold { font-weight: bold; }
+                    .border-4 { 
+                        border: 6px double #1e3a8a; 
+                        padding: 40px; 
+                        text-align: center; 
+                        margin-bottom: 50px; 
+                        border-radius: 8px;
+                    }
+                </style>
+            </head>
+            <body>
+                    
+                    <!-- COVER PAGE -->
+                    <div id="coverPage" class="border-4 border-double border-blue-950 p-8 min-h-[700px] flex flex-col justify-between items-center text-center bg-white shadow-inner rounded-lg">
+                        <div class="space-y-2">
+                            <h4 class="moul-font text-lg text-blue-900 tracking-wide">ព្រះរាជាណាចក្រកម្ពុជា</h4>
+                            <h4 class="moul-font text-base text-blue-900 tracking-wide">ជាតិ សាសនា ព្រះមហាក្សត្រ</h4>
+                            <div class="flex justify-center py-1">
+                                <span class="text-xs text-yellow-600">✨ ⚜️ ✨</span>
+                            </div>
+                        </div>
+
+                        <!-- Spacer -->
+                        <div class="my-6">
+                            <div class="w-24 h-24 mx-auto mb-3 bg-blue-50 flex items-center justify-center rounded-full border border-blue-200">
+                                <svg class="w-16 h-16 text-blue-950" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4a2 2 0 012 2v2H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V8a2 2 0 00-2-2h-2V4a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <p class="text-sm font-semibold text-slate-600">សៀវភៅរបាយការណ៍ផ្លូវការ</p>
+                            <h2 class="moul-font text-xl md:text-2xl text-blue-950 leading-relaxed">ផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ សង្កាត់<br>រយៈពេល ៥ឆ្នាំ (២០២៦-២០៣០)</h2>
+                            <p class="moul-font text-lg text-yellow-600" id="coverDistrictTitle">ខេត្តកំពត (សរុបរួម)</p>
+                        </div>
+
+                        <div class="w-full border-t border-slate-300 pt-6 mt-8 text-xs text-slate-500 space-y-1">
+                            <p class="font-bold">រៀបចំដោយ៖ គណៈកម្មាធិការគាំទ្រការអភិវឌ្ឍឃុំ សង្កាត់</p>
+                            <p>សហការជាមួយ៖ រដ្ឋបាលថ្នាក់ក្រោមជាតិ និងដៃគូអភិវឌ្ឍន៍នានា</p>
+                            <p class="pt-4 font-bold text-blue-900">ឆ្នាំ ២០២៦</p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 1 -->
+                    <div id="section1" class="space-y-4 pt-6 border-t border-slate-100">
+                        <h2 class="moul-font text-base text-blue-900 border-b-2 border-blue-900 pb-2">១. សេចក្តីផ្តើម និងគោលបំណង (Introduction and Objectives)</h2>
+                        <p class="text-justify leading-relaxed text-slate-700">
+                            ការរៀបចំ <strong>ផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍ឃុំ សង្កាត់ រយៈពេល ៥ឆ្នាំ (២០២៦-២០៣០)</strong> គឺជាកិច្ចការគន្លឹះស្របតាមច្បាប់ស្តីពីការគ្រប់គ្រងរដ្ឋបាលឃុំ សង្កាត់ និងគោលនយោបាយវិមជ្ឈការ និងវិសហមជ្ឈការរបស់រាជរដ្ឋាភិបាលកម្ពុជា។ គោលបំណងចម្បងគឺដើម្បីបង្កើនភាពជាម្ចាស់របស់មូលដ្ឋានក្នុងការដោះស្រាយបញ្ហាប្រឈម លើកកម្ពស់កម្រិតជីវភាពប្រជាពលរដ្ឋ និងធានាការអភិវឌ្ឍប្រកបដោយចីរភាព បរិយាបន្ន និងសមធម៌សង្គម។
+                        </p>
+                        
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-900 rounded-r-lg my-4 italic text-slate-700">
+                            <p class="font-semibold mb-1 text-xs text-blue-900">💬 ប្រសាសន៍ដឹកនាំដ៏ខ្ពង់ខ្ពស់៖</p>
+                            <p id="liveLeaderQuote">«រាល់ផែនការយុទ្ធសាស្ត្រទាំងអស់ត្រូវតែបម្រើឧត្តមប្រយោជន៍របស់ប្រជាពលរដ្ឋជាធំ និងឆ្លើយតបទៅនឹងតម្រូវការជាក់ស្តែងក្នុងមូលដ្ឋាន។»</p>
+                            <p class="text-right text-xs font-bold text-slate-500 mt-2">— <span id="liveLeaderName">ឯកឧត្តម ម៉ៅ ធនិន</span></p>
+                        </div>
+
+                        <!-- Image Section (Stock photo integration) -->
+                        <div class="bg-slate-100 border border-slate-200 rounded-xl p-4 text-center my-6">
+                            <div class="w-full h-48 bg-blue-950/10 rounded-lg flex flex-col justify-center items-center p-4">
+                                
+                                <svg class="w-12 h-12 text-blue-900/40 mb-2 mt-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                <span class="text-xs text-slate-600 font-semibold italic">រូបភាពទី១៖ កិច្ចប្រជុំពិភាក្សាផែនការយុទ្ធសាស្ត្រជាមួយប្រជាពលរដ្ឋ និងតំណាងសហគមន៍</span>
+                            </div>
+                        </div>
+
+                        <p class="text-justify leading-relaxed text-slate-700">
+                            រាល់ទិន្នន័យដែលប្រើប្រាស់ក្នុងការវិភាគស្ថានភាពបច្ចុប្បន្ន និងការកំណត់គោលដៅ គឺទទួលបានពីប្រភពផ្លូវការនៃការស្ទង់មតិសូចនាករខេត្តកំពត ឆ្នាំ២០២៥ ដែលត្រូវបានផ្ទៀងផ្ទាត់យ៉ាងហ្មត់ចត់ពីឯកសារមេ <strong>IndicatorValueList_ខេត្តកំពត_2025(ថ្មី).xlsx</strong> ដើម្បីធានានូវភាពត្រឹមត្រូវ និងតម្លាភាពខ្ពស់បំផុត។
+                        </p>
+                    </div>
+
+                    <!-- SECTION 2 -->
+                    <div id="section2" class="space-y-4 pt-6 border-t border-slate-100">
+                        <h2 class="moul-font text-base text-blue-900 border-b-2 border-blue-900 pb-2">២. ស្ថានភាពទូទៅ និងការវិភាគស្ថានភាពបច្ចុប្បន្ន (Situation Analysis)</h2>
+                        <p class="text-justify leading-relaxed text-slate-700">
+                            ផ្អែកលើការស្រាវជ្រាវ និងការវិភាគទិន្នន័យពីប្រព័ន្ធព័ត៌មានភូមិឃុំឆ្នាំ២០២៥ រចនាសម្ព័ន្ធសង្គម-សេដ្ឋកិច្ចនៅក្នុងដែនសមត្ថកិច្ចរបស់ <span class="font-bold text-blue-900" id="reportDistrictName">ខេត្តកំពត (សរុបរួម)</span> ត្រូវបានបង្ហាញលម្អិតដូចខាងក្រោម៖
+                        </p>
+
+                        <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wider">២.១ ផ្នែកប្រជាសាស្ត្រ និងរចនាសម្ព័ន្ធសង្គម</h3>
+                        
+                        <!-- Table for Word Export -->
+                        <div class="overflow-x-auto my-4">
+                            <table class="w-full text-xs text-left text-slate-600 border border-slate-300 border-collapse">
+                                <thead class="bg-blue-900 text-white text-[11px] uppercase">
+                                    <tr style="background-color: #1e3a8a; color: #ffffff;">
+                                        <th style="border: 1px solid #cbd5e1; padding: 10px;" class="px-4 py-2">សូចនាករប្រជាសាស្ត្រ</th>
+                                        <th style="border: 1px solid #cbd5e1; padding: 10px; text-align: right;" class="px-4 py-2 text-right">តម្លៃទិន្នន័យ (ឆ្នាំ២០២៥)</th>
+                                        <th style="border: 1px solid #cbd5e1; padding: 10px; text-align: right;" class="px-4 py-2 text-right">ភាគរយប្រៀបធៀប (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 bg-slate-50">
+                                    <tr style="background-color: #ffffff;">
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px;" class="px-4 py-2 font-medium">ចំនួនគ្រួសារសរុប</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: right;" id="tableFamilies" class="px-4 py-2 text-right font-bold text-slate-900">182,832 គ្រួសារ</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: right;" class="px-4 py-2 text-right text-slate-400">—</td>
+                                    </tr>
+                                    <tr style="background-color: #f8fafc;">
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px;" class="px-4 py-2 font-medium">ប្រជាជនសរុប</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: right;" id="tablePopulation" class="px-4 py-2 text-right font-bold text-slate-900">738,187 នាក់</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: right;" class="px-4 py-2 text-right text-slate-900">១០០%</td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff;">
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px;" class="px-4 py-2 font-medium">ប្រជាជនភេទស្រី</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: right;" id="tableFemales" class="px-4 py-2 text-right text-slate-900">377,789 នាក់</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: right; color: #1d4ed8;" id="pctFemales" class="px-4 py-2 text-right text-blue-700 font-semibold">51.18%</td>
+                                    </tr>
+                                    <tr style="background-color: #f8fafc;">
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px;" class="px-4 py-2 font-medium">ប្រជាជនភេទប្រុស</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: right;" id="tableMales" class="px-4 py-2 text-right text-slate-900">360,398 នាក់</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: right;" id="pctMales" class="px-4 py-2 text-right text-slate-600">48.82%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Data Insights Analysis Paragraph -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs leading-relaxed space-y-2 text-slate-700">
+                            <h4 class="font-bold text-blue-900">🔍 ការវិភាគទិន្នន័យប្រជាសាស្ត្រ៖</h4>
+                            <p id="analysisParagraph">ផ្អែកលើការវិភាគទិន្នន័យជាក់ស្តែងនៃ ខេត្តកំពត (សរុបរួម) ចំនួនប្រជាជនសរុបគឺ 738,187 នាក់ ដែលក្នុងនោះមានគ្រួសារសរុបចំនួន 182,832 គ្រួសារ។ គួរកត់សម្គាល់ថា អត្រាប្រជាជនភេទស្រីស្មើនឹង 51.18% ដែលបង្ហាញពីចំនួនស្ត្រីមានសមាមាត្រខ្ពស់ជាងបុរសនៅក្នុងតំបន់នេះ។ លើសពីនេះ ស្រុកមានមណ្ឌលសុខភាពចំនួន 68 កន្លែង ដើម្បីបម្រើសេវាសុខាភិបាលជូនប្រជាពលរដ្ឋ។ ផ្អែកលើទិន្នន័យប្រជាសាស្ត្រនេះ ផែនការយុទ្ធសាស្ត្រអភិវឌ្ឍន៍រយៈពេល ៥ឆ្នាំ នឹងផ្តល់អាទិភាពខ្លាំងលើការគាំពារសុខភាពមាតានិងទារក ព្រមទាំងការលើកកម្ពស់តួនាទីស្ត្រីក្នុងសេដ្ឋកិច្ចមូលដ្ឋាន។</p>
+                        </div>
+
+                        <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wider pt-4">២.២ ស្ថានភាពសេដ្ឋកិច្ច និងសេវាសាធារណៈ</h3>
+                        <p class="text-justify leading-relaxed text-slate-700">
+                            មុខរបរចម្បងរបស់ប្រជាពលរដ្ឋគឺពឹងផ្អែកលើវិស័យកសិកម្ម (ការធ្វើស្រែចំការ ដំណាំកៅស៊ូ ម្រេចកំពត និងដំណាំហូបផ្លែផ្សេងៗ) វិស័យនេសាទសម្រាប់ឃុំជាប់ឆ្នេរ និងសហគ្រាសខ្នាតតូចនិងមធ្យម។ ជាមួយគ្នានេះ វិស័យទេសចរណ៍ក៏កំពុងរីកចម្រើនយ៉ាងរហ័សផងដែរ។
+                        </p>
+
+                        <!-- Quote 2 from community -->
+                        <div class="p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-lg my-4 italic text-slate-700 text-xs">
+                            <p class="font-semibold mb-1 text-amber-800">💬 មតិយោបល់របស់ប្រជាពលរដ្ឋមូលដ្ឋាន៖</p>
+                            <p id="liveUserQuote">ការអភិវឌ្ឍផ្លូវថ្នល់ និងប្រព័ន្ធទឹកស្អាតពិតជាបានប្រែក្លាយជីវភាពពួកយើងឱ្យប្រសើរឡើងយ៉ាងខ្លាំងក្នុងរយៈពេល២ឆ្នាំចុងក្រោយនេះ។</p>
+                            <p class="text-right font-bold text-slate-500 mt-2">— តំណាងប្រជាពលរដ្ឋមូលដ្ឋាន</p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3 -->
+                    <div id="section3" class="space-y-4 pt-6 border-t border-slate-100">
+                        <h2 class="moul-font text-base text-blue-900 border-b-2 border-blue-900 pb-2">៣. ការកំណត់ទិសដៅយុទ្ធសាស្ត្រ និងសូចនាករគន្លឹះ (Strategic Directions &amp; Indicators)</h2>
+                        <p class="text-justify leading-relaxed text-slate-700">
+                            ដើម្បីធានាបាននូវការតាមដានការអនុវត្តផែនការប្រកបដោយប្រសិទ្ធភាព ក្រុមប្រឹក្សាបានកំណត់សូចនាករគោលដៅសម្រាប់អភិវឌ្ឍន៍ឃុំ សង្កាត់ ក្នុងឆ្នាំ ២០២៦-២០៣០ ដូចខាងក្រោម៖
+                        </p>
+
+                        <div class="overflow-x-auto my-4">
+                            <table class="w-full text-xs text-left text-slate-600 border border-slate-300 border-collapse">
+                                <thead class="bg-slate-100 text-slate-800 font-bold">
+                                    <tr style="background-color: #f1f5f9;">
+                                        <th style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">ល.រ</th>
+                                        <th style="border: 1px solid #cbd5e1; padding: 8px;">សូចនាករគន្លឹះ</th>
+                                        <th style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">តម្លៃគោល (២០២៥)</th>
+                                        <th style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">គោលដៅ (២០២៨)</th>
+                                        <th style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">គោលដៅ (២០៣០)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr style="background-color: #ffffff;">
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">១</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px;">អត្រាគ្រួសារប្រើប្រាស់ទឹកស្អាត និងអនាម័យមានសុវត្ថិភាព</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; color: #64748b;">៧២.៥%</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold; color: #1e3a8a;">៨៥.០%</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold; color: #15803d;">៩៥.០%</td>
+                                    </tr>
+                                    <tr style="background-color: #f8fafc;">
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">២</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px;">អត្រាប្រើប្រាស់បង្គន់អនាម័យផ្ទាល់ខ្លួន</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; color: #64748b;">៨០.០%</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold; color: #1e3a8a;">៩០.០%</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold; color: #15803d;">១០០%</td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff;">
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">៣</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px;">អត្រាកុមារបោះបង់ការសិក្សានៅកម្រិតបឋមសិក្សា</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; color: #64748b;">៣.៤%</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold; color: #1e3a8a;">២.០%</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold; color: #15803d;">&lt; ១.៥%</td>
+                                    </tr>
+                                    <tr style="background-color: #f8fafc;">
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center;">៤</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px;">អត្រាកាត់បន្ថយភាពក្រីក្រប្រចាំឆ្នាំ</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; color: #64748b;">១២.៣%</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold; color: #1e3a8a;">៩.៥%</td>
+                                        <td style="border: 1px solid #cbd5e1; padding: 8px; text-align: center; font-weight: bold; color: #15803d;">&lt; ៧.០%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 4 -->
+                    <div id="section4" class="space-y-4 pt-6 border-t border-slate-100">
+                        <h2 class="moul-font text-base text-blue-900 border-b-2 border-blue-900 pb-2">៤. កម្មវិធីវិនិយោគអាទិភាព និងការកៀរគរធនធាន (Priority Investment Programs)</h2>
+                        <p class="text-justify leading-relaxed text-slate-700">
+                            ផ្អែកលើការវាយតម្លៃស្ថានភាពបច្ចុប្បន្ន ឃុំ/សង្កាត់ បានរៀបចំកម្មវិធីវិនិយោគអាទិភាពលើវិស័យគន្លឹះចំនួន ៤ ដូចខាងក្រោម៖
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+                            <div style="border: 1px solid #e2e8f0; padding: 15px; background-color: #f8fafc; border-radius: 8px;" class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                                <h4 class="font-bold text-blue-900 text-xs mb-2 flex items-center gap-1.5">🌾 វិស័យសេដ្ឋកិច្ច</h4>
+                                <ul class="list-disc pl-4 space-y-1 text-xs text-slate-600">
+                                    <li>បង្កើនបច្ចេកទេសកសិកម្មធន់នឹងការប្រែប្រួលអាកាសធាតុ</li>
+                                    <li>បណ្តុះបណ្តាលជំនាញវិជ្ជាជីវៈដល់យុវជនមូលដ្ឋាន</li>
+                                    <li>គាំទ្រនិងផ្សព្វផ្សាយទេសចរណ៍សហគមន៍តំបន់កំពត</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="border: 1px solid #e2e8f0; padding: 15px; background-color: #f8fafc; border-radius: 8px;" class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                                <h4 class="font-bold text-blue-900 text-xs mb-2 flex items-center gap-1.5">🏫 វិស័យសង្គមកិច្ច</h4>
+                                <ul class="list-disc pl-4 space-y-1 text-xs text-slate-600">
+                                    <li>សាងសង់ និងជួសជុលអគារសិក្សាចាស់ៗ</li>
+                                    <li>ពង្រឹងគុណភាពសេវាមណ្ឌលសុខភាព (បច្ចុប្បន្នមាន <span id="bulletHealthCenters" class="font-bold text-blue-900">68</span> កន្លែង)</li>
+                                    <li>ផ្តល់ការគាំពារដល់ជនងាយរងគ្រោះ និងស្ត្រីមេគ្រួសារ</li>
+                                </ul>
+                            </div>
+
+                            <div style="border: 1px solid #e2e8f0; padding: 15px; background-color: #f8fafc; border-radius: 8px;" class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                                <h4 class="font-bold text-blue-900 text-xs mb-2 flex items-center gap-1.5">🛣️ វិស័យហេដ្ឋារចនាសម្ព័ន្ធ</h4>
+                                <ul class="list-disc pl-4 space-y-1 text-xs text-slate-600">
+                                    <li>ស្តារ និងស្ថាបនាផ្លូវគ្រួសក្រហមទៅជាផ្លូវបេតុង</li>
+                                    <li>កែលម្អប្រព័ន្ធប្រឡាយធារាសាស្ត្រខ្នាតតូច</li>
+                                    <li>ពង្រីកបណ្តាញអគ្គិសនី និងទឹកស្អាតដល់គ្រប់ភូមិ</li>
+                                </ul>
+                            </div>
+
+                            <div style="border: 1px solid #e2e8f0; padding: 15px; background-color: #f8fafc; border-radius: 8px;" class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                                <h4 class="font-bold text-blue-900 text-xs mb-2 flex items-center gap-1.5">🌳 វិស័យបរិស្ថាន និងធនធានធម្មជាតិ</h4>
+                                <ul class="list-disc pl-4 space-y-1 text-xs text-slate-600">
+                                    <li>គ្រប់គ្រងការចោលកាកសំណល់រឹង និងសំណល់រាវ</li>
+                                    <li>ដាំដើមឈើឡើងវិញ និងការពារតំបន់ព្រៃលិចទឹកមាត់សមុទ្រ</li>
+                                    <li>លើកកម្ពស់ការយល់ដឹងស្តីពីបម្រែបម្រួលអាកាសធាតុ</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Image Section 2 (Stock photo integration) -->
+                        <div class="bg-slate-100 border border-slate-200 rounded-xl p-4 text-center my-6">
+                            <div class="w-full h-48 bg-blue-950/10 rounded-lg flex flex-col justify-center items-center p-4">
+                                
+                                <svg class="w-12 h-12 text-blue-900/40 mb-2 mt-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                <span class="text-xs text-slate-600 font-semibold italic">រូបភាពទី២៖ សកម្មភាពស្ថាបនាហេដ្ឋារចនាសម្ព័ន្ធផ្លូវបេតុង និងការតភ្ជាប់ប្រព័ន្ធទឹកស្អាតជនបទ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 5 -->
+                    <div id="section5" class="space-y-4 pt-6 border-t border-slate-100">
+                        <h2 class="moul-font text-base text-blue-900 border-b-2 border-blue-900 pb-2">៥. យន្តការតាមដាន និងវាយតម្លៃ (Monitoring and Evaluation Framework)</h2>
+                        <p class="text-justify leading-relaxed text-slate-700">
+                            រាល់គម្រោងវិនិយោគដែលបានកំណត់ នឹងត្រូវត្រួតពិនិត្យ និងវាយតម្លៃជាប្រចាំត្រីមាស ឆមាស និងប្រចាំឆ្នាំ ដោយគណៈកម្មាធិការគាំទ្រការអភិវឌ្ឍន៍ឃុំ សង្កាត់ និងការចូលរួមត្រួតពិនិត្យពីសំណាក់តំណាងប្រជាពលរដ្ឋ និងអង្គការសង្គមស៊ីវិល។
+                        </p>
+                        <p class="text-justify leading-relaxed text-slate-700">
+                            លទ្ធផលជាក់ស្តែងនៃការអនុវត្ត នឹងត្រូវយកទៅប្រៀបធៀបជាមួយសូចនាករយោងក្នុងសៀវភៅ <strong>IndicatorValueList_ខេត្តកំពត_2025(ថ្មី).xlsx</strong> ដើម្បីធានាថា រាល់ការចំណាយ និងគម្រោងនីមួយៗផ្តល់អត្ថប្រយោជន៍ជាអតិបរមាដល់ប្រជាជនមូលដ្ឋាន និងស្របតាមចក្ខុវិស័យដែលបានកំណត់ទុក។
+                        </p>
+                    </div>
+
+                </body></html>
